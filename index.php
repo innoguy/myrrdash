@@ -1,5 +1,3 @@
-
-
 <?php
     /* Include all configuration files */
     require_once("config/periods.php");
@@ -53,7 +51,7 @@
             <div class="collapse navbar-collapse" id="navbarColor02">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="fetch.php?pnr=<?php print($Controllers[$CurrentController]['port']) ?>" >  <?php print($Controllers[$CurrentController]['name']) ?> </a>
+                        <a class="nav-link" href="fetch.php?pnr=<?php print($Controllers[$CurrentController]['port']) ?>" >  <?php print($Controllers[$CurrentController]['name']); ?> </a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -62,7 +60,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <?php
                                 foreach ($Controllers as $controller => $values) {
-                                    print("<a class=\"dropdown-item\" href=\"?controller=" . $controller . "&category=" . $CurrentCategory . "\">" . $values['name'] . "</a>");
+                                    print("<a class=\"dropdown-item\" href=\"?controller=" . $controller . "&category=" . $CurrentCategory . "\">" . $values['name'] . "(" . $values['port'] . ")" . "</a>");
                                 }
                             ?>
                             <div class="dropdown-divider"></div>

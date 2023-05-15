@@ -17,6 +17,7 @@
             <label for="port">Port: </label>
             <input type="text" id="port" name="port" value=<?php echo $port ?>>
             <input type="submit" name="refresh" class="btn btn-primary" value="Download RRD file" />
+            <input type="submit" name="setport" class="btn btn-primary" value="Set controller" />
             <a href="index.php" class="btn btn-primary">Back to dashboard</a>
         </form>
 
@@ -30,6 +31,19 @@
                     echo "Port empty";
                 }
             }
+
+            if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['setport'])) {
+                $port = $_POST['port'];
+                if ($port) {
+                    if (!file_exists("/var/www/html/rrd/sensors".$port.".rrd")) {
+                        echo "File not available. Download new RRD file.";
+                    }
+                    echo shell_exec("ln -sf /var/www/html/rrd/sensors".$port.".rrd /var/www/html/rrd/sensors.rrd");
+                } else {
+                    echo "Port empty";
+                }
+            }
+
         ?>
 
         <?php
