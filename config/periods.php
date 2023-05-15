@@ -11,6 +11,8 @@
     */
     $TimePeriods = array (
         "hour"  => array( "from" => "-3600",    "to" => "-30", "name" => "One Hour"  ),
+        "2hrs"  => array( "from" => "-7200",    "to" => "-30", "name" => "Two Houra"  ),
+        "3hrs"  => array( "from" => "-10800",    "to" => "-30", "name" => "Three Hours"  ),
         "6hrs"  => array( "from" => "-21600",   "to" => "-30", "name" => "Six Hours" ),
         "day"   => array( "from" => "-86400",   "to" => "-30", "name" => "One Day"   ),
         "2days" => array( "from" => "-172800",  "to" => "-30", "name" => "Two Days"   ),
