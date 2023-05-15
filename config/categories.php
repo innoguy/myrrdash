@@ -10,15 +10,19 @@
         "system" => array(
             "name" => "System Loading",
             "graphs" => array("cpu_load", "temperature", "ssd_io"),
-	),
-	"applications" => array(
-	    "name" => "Applications",
-	    "graphs" => array("app_cpu", "app_mem"),
-	), 
-	"network" => array(
-	    "name" => "Network",
-	    "graphs" => array("net_cel", "net_wif", "net_eth"),
-	), 
+        ),
+        "applications" => array(
+            "name" => "Applications",
+            "graphs" => array("app_cpu", "app_mem"),
+        ), 
+        "network" => array(
+            "name" => "Network",
+            "graphs" => array("net_cel", "net_wif", "net_eth"),
+        ), 
+        "combined" => array(
+            "name" => "Combined",
+            "graphs" => array("system"),
+        )
     );
 
     /*
