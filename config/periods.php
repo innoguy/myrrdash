@@ -1,4 +1,5 @@
 <?php
+    session_start();
     /*
     Specify here all the time periods that will be available from within RRDash.
     Each period must have a unique key, that will be used by RRDash to refer to it.

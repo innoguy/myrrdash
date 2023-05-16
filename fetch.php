@@ -1,5 +1,9 @@
 <?php
-   $port = $_GET['pnr'];
+    session_start();
+    $port = $_GET['pnr'];
+    $_SESSION['port'] = $port;
+    $name = $_GET['nam'];
+    $_SESSION['name'] = $name;
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +42,7 @@
                     if (!file_exists("/var/www/html/rrd/sensors".$port.".rrd")) {
                         echo "File not available. Download new RRD file.";
                     }
-                    echo shell_exec("ln -sf /var/www/html/rrd/sensors".$port.".rrd /var/www/html/rrd/sensors.rrd");
+                    # echo shell_exec("ln -sf /var/www/html/rrd/sensors".$port.".rrd /var/www/html/rrd/sensors.rrd");
                 } else {
                     echo "Port empty";
                 }

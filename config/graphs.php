@@ -1,4 +1,5 @@
 <?php
+    session_start();
 
     /*
     Here you need to specify the rrdtool binary path in the system. You may use
@@ -17,7 +18,10 @@
     in the end of your files. Make sure all defines start with RRD_ to ensure
     they are not used anywhere else in the RRDash code.
     */
-    define("RRD_PATH", "./rrd/sensors.rrd");
+    define("RRD_PATH", "./rrd/sensors".$_SESSION['port'].".rrd");
+
+    echo $RRD_PATH;
+
     define("RRD_DIMENSIONS", "-D -w 1200 -h 400");
     define("RRD_CONSTANTS", "-E");
     define("STYLE", "--color CANVAS#181B1F --color BACK#111217 --color FONT#CCCCDC " );

@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
     /*
     Specify here all the categories you want to appear in the left-hand column. For each
     category you need to supply a unique ID that will be used internally by RRDash to refer

@@ -1,5 +1,7 @@
 <?php
 
+    session_start();
+    
     /* This function is used in case of an error. Returns all apropriate headers
     to the browser, and then serves an error image from the static folder. */
     function showImageError($error) {

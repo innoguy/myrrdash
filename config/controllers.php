@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 $url = "http://161.35.73.10:8000/controllers";
 
 $curl = curl_init($url);

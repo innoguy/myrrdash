@@ -26,6 +26,7 @@
         $CurrentController = $_GET['controller'];
     }
 
+    session_start();
 ?>
 
 
@@ -44,6 +45,7 @@
         <!-- Navigation Bar -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href=".">Cirrus</a>
+            <a class="navbar-brand" href="."><?php  print($_SESSION['name']); ?></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -51,7 +53,7 @@
             <div class="collapse navbar-collapse" id="navbarColor02">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="fetch.php?pnr=<?php print($Controllers[$CurrentController]['port']) ?>" >  <?php print($Controllers[$CurrentController]['name']); ?> </a>
+                        <a class="nav-link" href=<?php echo "fetch.php?pnr=".$Controllers[$CurrentController]['port']."&nam=".$Controllers[$CurrentController]['name']?> >  <?php print($Controllers[$CurrentController]['name']); ?> </a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
