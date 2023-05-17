@@ -11,15 +11,16 @@
     will appear in the "Time Period" menu of RRDash.
     */
     $TimePeriods = array (
-        "hour"  => array( "from" => "-3600",    "to" => "-30", "name" => "One Hour"  ),
-        "2hrs"  => array( "from" => "-7200",    "to" => "-30", "name" => "Two Houra"  ),
-        "3hrs"  => array( "from" => "-10800",    "to" => "-30", "name" => "Three Hours"  ),
-        "6hrs"  => array( "from" => "-21600",   "to" => "-30", "name" => "Six Hours" ),
-        "day"   => array( "from" => "-86400",   "to" => "-30", "name" => "One Day"   ),
-        "2days" => array( "from" => "-172800",  "to" => "-30", "name" => "Two Days"   ),
-        "3days" => array( "from" => "-259200",  "to" => "-30", "name" => "Three Days"   ),
-        "week"  => array( "from" => "-604800",  "to" => "-30", "name" => "One Week"  ),
-        "month" => array( "from" => "-2592000", "to" => "-30", "name" => "One Month" ),
+        "hour"  => array( "from" => "-3600",        "to" => "-30",      "name" => "One Hour"  ),
+        "2hrs"  => array( "from" => "-7200",        "to" => "-30",      "name" => "Two Hours"  ),
+        "3hrs"  => array( "from" => "-10800",       "to" => "-30",      "name" => "Three Hours"  ),
+        "6hrs"  => array( "from" => "-21600",       "to" => "-30",      "name" => "Six Hours" ),
+        "day"   => array( "from" => "-86400",       "to" => "-30",      "name" => "Today"   ),
+        "day_1" => array( "from" => "-172800",      "to" => "-86400",   "name" => "Yesterday"   ),
+        "2days" => array( "from" => "-172800",      "to" => "-30",      "name" => "Past 2 Days"   ),
+        "3days" => array( "from" => "-259200",      "to" => "-30",      "name" => "Past 3 Days"   ),
+        "week"  => array( "from" => "-604800",      "to" => "-30",      "name" => "This Week"  ),
+        "month" => array( "from" => "-2592000",     "to" => "-30",      "name" => "This Month" ),
     );
 
     /*
@@ -28,6 +29,4 @@
     menu of RRDash.
     */
     $DefaultTimePeriod = "day";
-
-
 ?>

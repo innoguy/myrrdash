@@ -31,6 +31,7 @@
                 if ($port) {
                     echo "Port set to " . $port;
                     refresh();
+                    $_SESSION['port'] = $port;
                 } else {
                     echo "Port empty";
                 }
@@ -41,6 +42,8 @@
                 if ($port) {
                     if (!file_exists("/var/www/html/rrd/sensors".$port.".rrd")) {
                         echo "File not available. Download new RRD file.";
+                    } else {
+                        $_SESSION['port'] = $port;
                     }
                     # echo shell_exec("ln -sf /var/www/html/rrd/sensors".$port.".rrd /var/www/html/rrd/sensors.rrd");
                 } else {
@@ -58,7 +61,7 @@
             $password = "cirrusled";
             $connection = NULL;
             $remote_file_path = "/var/log/sensors.rrd";
-            $local_file_path = "/var/www/html/rrd/sensors.rrd";
+            $local_file_path = "/var/www/html/rrd/sensors".$port.".rrd";
             echo "Attempting to get file from " . $port;
             try {
             $connection = ssh2_connect($host, $port);
