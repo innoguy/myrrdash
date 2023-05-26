@@ -61,7 +61,6 @@
             $password = "cirrusled";
             $connection = NULL;
 
-            echo "Attempting to get file from " . $port;
             try {
                 $connection = ssh2_connect($host, $port);
                 if(!$connection){
@@ -72,12 +71,6 @@
                     throw new \Exception("Could not authenticate with username $username and password ");  
                 }
 
-                
-            } catch (Exception $e) {
-                echo "Error due to :".$e->getMessage();
-            }
-
-            try {
                 $remote_file_path = "/var/log/cirrus-rrd/sensors.rrd";
                 $local_file_path = "/var/www/html/rrd/sensors".$port.".rrd";
 
@@ -86,21 +79,18 @@
                     throw new \Exception("Could not initialize SFTP subsystem.");  
                 }
 
+                echo "Attempting to get sensors file from " . $port;
+
                 if(ssh2_scp_recv($connection, $remote_file_path, $local_file_path)) {
                     echo "File Download Success";
                 } else {
                     echo "File Download Failed";
                 }
 
-                $chmod($local_file_path, 0777);
-
                 $remote_file_path = "/var/log/cirrus-rrd/panels.rrd";
                 $local_file_path = "/var/www/html/rrd/panels".$port.".rrd";
 
-                $sftp = ssh2_sftp($connection);
-                if(!$sftp){
-                    throw new \Exception("Could not initialize SFTP subsystem.");  
-                }
+                echo "Attempting to get panels file from " . $port;
 
                 if(ssh2_scp_recv($connection, $remote_file_path, $local_file_path)) {
                     echo "File Download Success";
@@ -108,8 +98,6 @@
                     echo "File Download Failed";
                 }
                 
-                $chmod($local_file_path, 0777);
-
             } catch (Exception $e) {
                 echo "Error due to :".$e->getMessage();
             }
