@@ -67,6 +67,10 @@
     define("B_FPS",   STYLE . "DEF:B_fps="  . RRD2_PATH . ":B_fps:AVERAGE LINE1:B_fps#00ff00:\"B fps \"");
     define("B_IFC",   STYLE . "DEF:B_ifc="  . RRD2_PATH . ":B_ifc:AVERAGE LINE1:B_ifc#00ffff:\"B ifc \"");
 
+    define("PAN_NBR",   STYLE . "DEF:pan_nbr="  . RRD2_PATH . ":detected:AVERAGE LINE1:pan_nbr#0000ff:\"nbr \"");
+    define("PAN_TEMP",  STYLE . "DEF:pan_temp=" . RRD2_PATH . ":temp:AVERAGE LINE1:pan_temp#ff0000:\"tmp \"");
+    define("PAN_FPS",   STYLE . "DEF:pan_fps="  . RRD2_PATH . ":frat:AVERAGE LINE1:pan_fps#00ff00:\"fps \"");
+
     $Graphs = array(
         "cpu_load" => RRD_DIMENSIONS . " " . RRD_CONSTANTS . " -t \"CPU load\" " . CPU_LOAD , 
         "temperature" => RRD_DIMENSIONS . " " . RRD_CONSTANTS . " -t \"Temperature\" " . CPU_TEMP . " " . SSD_TEMP, 
@@ -76,8 +80,13 @@
         "net_cel" => RRD_DIMENSIONS . " " . RRD_CONSTANTS . " -t \"NET CEL \" " . NET_CEL , 
         "net_wif" => RRD_DIMENSIONS . " " . RRD_CONSTANTS . " -t \"NET WIF \" " . NET_WIF , 
         "net_eth" => RRD_DIMENSIONS . " " . RRD_CONSTANTS . " -t \"NET ETH \" " . NET_ETH , 
-        "pan_A" => RRD_DIMENSIONS . " " . RRD_CONSTANTS . " -t \"PAN A \" " . A_NBR . " " . A_TEMP . " " . A_FPS . " " . A_IFC , 
-        "pan_B" => RRD_DIMENSIONS . " " . RRD_CONSTANTS . " -t \"PAN B \" " . B_NBR . " " . B_TEMP . " " . B_FPS . " " . B_IFC , 
+        "pans_nbr" => RRD_DIMENSIONS . " " . RRD_CONSTANTS . " -t \"PAN NBR \" " . A_NBR . " " . B_NBR , 
+        "pans_temp" => RRD_DIMENSIONS . " " . RRD_CONSTANTS . " -t \"PAN TEMP \" " . A_TEMP . " " . B_TEMP , 
+        "pans_fps" => RRD_DIMENSIONS . " " . RRD_CONSTANTS . " -t \"PAN FPS \" " . A_FPS . " " . B_FPS , 
+        "pans_ifc" => RRD_DIMENSIONS . " " . RRD_CONSTANTS . " -t \"PAN IFC \" " . A_IFC . " " . B_IFC , 
+        "pan_nbr" => RRD_DIMENSIONS . " " . RRD_CONSTANTS . " -t \"PAN NBR\" " . PAN_NBR, 
+        "pan_temp" => RRD_DIMENSIONS . " " . RRD_CONSTANTS . " -t \"PAN TEMP\" " . PAN_TEMP, 
+        "pan_fps" => RRD_DIMENSIONS . " " . RRD_CONSTANTS . " -t \"PAN FPS\" " . PAN_FPS, 
     );
 
 ?>

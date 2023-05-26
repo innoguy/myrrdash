@@ -19,9 +19,13 @@
             "name" => "Network",
             "graphs" => array("net_cel", "net_wif", "net_eth"),
         ), 
-        "combined" => array(
-            "name" => "Combined",
-            "graphs" => array("system"),
+        "panels" => array(
+            "name" => "Panels",
+            "graphs" => array("pans_nbr", "pans_temp", "pans_fps", "pans_ifc"),
+        ),
+        "panel" => array(
+            "name" => "Panel",
+            "graphs" => array("pan_nbr", "pan_temp", "pan_fps"),
         )
     );
 

@@ -81,18 +81,7 @@
             }
 
             try {
-                $remote_file_path = "/var/log/panels.rrd";
-                $local_file_path = "/var/www/html/rrd/panels".$port.".rrd";
-
-                if(ssh2_scp_recv($connection, $remote_file_path, $local_file_path)) {
-                    echo "File Download Success";
-                } else {
-                    echo "File Download Failed";
-                }
-                
-                $chmod($local_file_path, 0777);
-
-                $remote_file_path = "/var/log/sensors.rrd";
+                $remote_file_path = "/var/log/cirrus-rrd/sensors.rrd";
                 $local_file_path = "/var/www/html/rrd/sensors".$port.".rrd";
 
                 if(ssh2_scp_recv($connection, $remote_file_path, $local_file_path)) {
@@ -101,6 +90,17 @@
                     echo "File Download Failed";
                 }
 
+                $chmod($local_file_path, 0777);
+
+                $remote_file_path = "/var/log/cirrus-rrd/panels.rrd";
+                $local_file_path = "/var/www/html/rrd/panels".$port.".rrd";
+
+                if(ssh2_scp_recv($connection, $remote_file_path, $local_file_path)) {
+                    echo "File Download Success";
+                } else {
+                    echo "File Download Failed";
+                }
+                
                 $chmod($local_file_path, 0777);
 
             } catch (Exception $e) {
