@@ -60,32 +60,52 @@
             $username = "cirrus";
             $password = "cirrusled";
             $connection = NULL;
-            $remote_file_path = "/var/log/sensors.rrd";
-            $local_file_path = "/var/www/html/rrd/sensors".$port.".rrd";
+
             echo "Attempting to get file from " . $port;
             try {
-            $connection = ssh2_connect($host, $port);
-            if(!$connection){
-                throw new \Exception("Could not connect to $host on port $port");
-            }
-            $auth  = ssh2_auth_password($connection, $username, $password);
-            if(!$auth){
-                throw new \Exception("Could not authenticate with username $username and password ");  
-            }
-            $sftp = ssh2_sftp($connection);
-            if(!$sftp){
-                throw new \Exception("Could not initialize SFTP subsystem.");  
-            }
-            if(ssh2_scp_recv($connection, $remote_file_path, $local_file_path)) {
-                echo "File Download Success";
-            } else {
-                echo "File Download Failed";
-            }
-            $connection = NULL;
+                $connection = ssh2_connect($host, $port);
+                if(!$connection){
+                    throw new \Exception("Could not connect to $host on port $port");
+                }
+                $auth  = ssh2_auth_password($connection, $username, $password);
+                if(!$auth){
+                    throw new \Exception("Could not authenticate with username $username and password ");  
+                }
+
+                $sftp = ssh2_sftp($connection);
+                if(!$sftp){
+                    throw new \Exception("Could not initialize SFTP subsystem.");  
+                }
             } catch (Exception $e) {
-            echo "Error due to :".$e->getMessage();
+                echo "Error due to :".$e->getMessage();
             }
-            $chmod($local_file_path, 0777);
+
+            try {
+                $remote_file_path = "/var/log/panels.rrd";
+                $local_file_path = "/var/www/html/rrd/panels".$port.".rrd";
+
+                if(ssh2_scp_recv($connection, $remote_file_path, $local_file_path)) {
+                    echo "File Download Success";
+                } else {
+                    echo "File Download Failed";
+                }
+                
+                $chmod($local_file_path, 0777);
+
+                $remote_file_path = "/var/log/sensors.rrd";
+                $local_file_path = "/var/www/html/rrd/sensors".$port.".rrd";
+
+                if(ssh2_scp_recv($connection, $remote_file_path, $local_file_path)) {
+                    echo "File Download Success";
+                } else {
+                    echo "File Download Failed";
+                }
+
+                $chmod($local_file_path, 0777);
+
+            } catch (Exception $e) {
+                echo "Error due to :".$e->getMessage();
+            }
         }
         ?>
     </body>
