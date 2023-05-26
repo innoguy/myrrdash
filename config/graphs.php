@@ -62,10 +62,10 @@
     define("A_FPS",   STYLE . "DEF:A_fps="  . RRD2_PATH . ":A_fps:AVERAGE LINE1:A_fps#00ff00:\"A fps \"");
     define("A_IFC",   STYLE . "DEF:A_ifc="  . RRD2_PATH . ":A_ifc:AVERAGE LINE1:A_ifc#00ffff:\"A ifc \"");
 
-    define("B_NBR",   STYLE . "DEF:B_nbr="  . RRD2_PATH . ":B_nbr:AVERAGE LINE1:B_nbr#0000ff:\"B nbr \"");
-    define("B_TEMP",  STYLE . "DEF:B_temp=" . RRD2_PATH . ":B_temp:AVERAGE LINE1:B_temp#ff0000:\"B tmp \"");
-    define("B_FPS",   STYLE . "DEF:B_fps="  . RRD2_PATH . ":B_fps:AVERAGE LINE1:B_fps#00ff00:\"B fps \"");
-    define("B_IFC",   STYLE . "DEF:B_ifc="  . RRD2_PATH . ":B_ifc:AVERAGE LINE1:B_ifc#00ffff:\"B ifc \"");
+    define("B_NBR",   STYLE . "DEF:B_nbr="  . RRD2_PATH . ":B_nbr:AVERAGE LINE1:B_nbr#00ff00:\"B nbr \"");
+    define("B_TEMP",  STYLE . "DEF:B_temp=" . RRD2_PATH . ":B_temp:AVERAGE LINE1:B_temp#0000ff:\"B tmp \"");
+    define("B_FPS",   STYLE . "DEF:B_fps="  . RRD2_PATH . ":B_fps:AVERAGE LINE1:B_fps#0000ff:\"B fps \"");
+    define("B_IFC",   STYLE . "DEF:B_ifc="  . RRD2_PATH . ":B_ifc:AVERAGE LINE1:B_ifc#00ff00:\"B ifc \"");
 
     define("PAN_NBR",   STYLE . "DEF:pan_nbr="  . RRD2_PATH . ":detected:AVERAGE LINE1:pan_nbr#0000ff:\"nbr \"");
     define("PAN_TEMP",  STYLE . "DEF:pan_temp=" . RRD2_PATH . ":temp:AVERAGE LINE1:pan_temp#ff0000:\"tmp \"");
