@@ -68,12 +68,10 @@
                 }
                 $auth = ssh2_auth_password($connection, $username, $password);
                 if(!$auth){
-                    try {
-                        $auth = ssh2_auth_password($connection, "root", "root");
-                        if(!$auth){
-                            throw new \Exception("Could not authenticate"); 
-                        }
-                    } 
+                    $auth = ssh2_auth_password($connection, "root", "root");
+                }
+                if(!$auth){
+                    throw new \Exception("Could not authenticate"); 
                 }
 
                 $remote_file_path = "/var/log/cirrus-rrd/sensors.rrd";
