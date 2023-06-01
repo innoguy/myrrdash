@@ -57,13 +57,8 @@
         function refresh() {
             $host = "161.35.73.10";
             $port = $_POST['port'];
-            $name = $_POST['name'];
             $username = "cirrus";
             $password = "cirrusled";
-            if (substr_compare($name, "SOA", 0, 3, true) == 0) {
-                $username = "root";
-                $password = "root";
-            }
             $connection = NULL;
 
             try {
@@ -71,9 +66,14 @@
                 if(!$connection){
                     throw new \Exception("Could not connect to $host on port $port");
                 }
-                $auth  = ssh2_auth_password($connection, $username, $password);
+                $auth = ssh2_auth_password($connection, $username, $password);
                 if(!$auth){
-                    throw new \Exception("Could not authenticate with username $username and password ");  
+                    try {
+                        $auth = ssh2_auth_password($connection, "root", "root");
+                        if(!$auth){
+                            throw new \Exception("Could not authenticate"); 
+                        }
+                    } 
                 }
 
                 $remote_file_path = "/var/log/cirrus-rrd/sensors.rrd";
