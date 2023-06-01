@@ -57,6 +57,7 @@
         function refresh() {
             $host = "161.35.73.10";
             $port = $_POST['port'];
+            $name = $_POST['name'];
             $username = "cirrus";
             $password = "cirrusled";
             if (substr_compare($name, "SOA", 0, 3, true) == 0) {
