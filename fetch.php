@@ -59,6 +59,10 @@
             $port = $_POST['port'];
             $username = "cirrus";
             $password = "cirrusled";
+            if (substr_compare($name, "SOA", 0, 3, true) == 0) {
+                $username = "root";
+                $password = "root";
+            }
             $connection = NULL;
 
             try {
